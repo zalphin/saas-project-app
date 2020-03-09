@@ -15,6 +15,8 @@ gem 'bootstrap-datepicker-rails'
 gem 'jquery-rails'
 gem 'aws-sdk'
 gem 'stripe'
+gem 'figaro'
+
 
 # Use Puma as the app server
 gem 'puma', '~> 3.11'

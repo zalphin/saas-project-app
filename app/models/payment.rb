@@ -12,7 +12,7 @@ class Payment < ApplicationRecord
   end
   
   def process_payment
-  	customer = Stripe::Customer.create emali: email, card: token
+  	customer = Stripe::Customer.create email: email, card: token
   	
   	Stripe::Charge.create customer: customer.id,
   																	amount: 1000,
