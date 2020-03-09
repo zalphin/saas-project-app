@@ -37,7 +37,7 @@
 	<thead>
 		<tr>
 			<th>Email</th>
-			<th><%= t '.actions', :default => t("helper.actions") %></th>
+			<th><%= t '.actions', :default => t("helpers.actions") %></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -45,7 +45,7 @@
 			<tr>
 				<td><%= other_user.email %></td>
 				<td>
-					<%= link_to "Add", user_tenant_project_path(id: @project.id,
+					<%= link_to "Add", add_user_tenant_project_path(id: @project.id,
 															tenant_id: @project.tenant_id,
 															user_id: other_user.id),
 															:method => :put,
