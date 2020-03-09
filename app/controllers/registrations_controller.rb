@@ -27,7 +27,7 @@ class RegistrationsController < ::Milia::RegistrationsController
 				@tenant = Tenant.create_new_tenant( tenant_params, user_params, coupon_params)
 				if @tenant.errors.empty?   # tenant created
 					if @tenant.plan == 'premium'
-						debugger
+						
 						@payment = Payment.new( { email: user_params["email"],
 																			token: params[:payment]["token"],
 																			tenant: @tenant
@@ -49,7 +49,7 @@ class RegistrationsController < ::Milia::RegistrationsController
 					log_action( "tenant create failed", @tenant )
 					render :new and return
 				end # if .. then .. else no tenant errors
-	      debugger
+	      
 				if flash[:error].blank? || flash[:error].empty? # payment successful
 					initiate_tenant( @tenant )    # first time stuff for new tenant
 					
