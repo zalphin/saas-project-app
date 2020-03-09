@@ -1,5 +1,5 @@
 <script language="JavaScript">
-  Stripe.setPublishableKey("<%= Rails.application.credentials.stripe[:publishable_key] %>");
+  Stripe.setPublishableKey("<%= Rails.application.credentials.stripe[:test_publishable] %>");
 </script>
 
 <h1><%= t('.sign_up') %></h1>

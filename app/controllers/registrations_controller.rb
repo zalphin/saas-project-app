@@ -12,6 +12,7 @@ class RegistrationsController < ::Milia::RegistrationsController
 	# CALLBACK: Tenant.tenant_signup      -- after completing user account
 	# ------------------------------------------------------------------------------
 	def create
+		Stripe.api_key = Rails.application.credentials.stripe[:test_secret]
 	    # have a working copy of the params in case Tenant callbacks
 	    # make any changes
 	  tenant_params = sign_up_params_tenant
@@ -27,13 +28,11 @@ class RegistrationsController < ::Milia::RegistrationsController
 				@tenant = Tenant.create_new_tenant( tenant_params, user_params, coupon_params)
 				if @tenant.errors.empty?   # tenant created
 					if @tenant.plan == 'premium'
-						
 						@payment = Payment.new( { email: user_params["email"],
 																			token: params[:payment]["token"],
 																			tenant: @tenant
 						})
 						flash[:error] = "Please check registration errors" unless @payment.valid?
-						
 						begin
 							@payment.process_payment
 							@payment.save
