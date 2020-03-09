@@ -45,17 +45,17 @@
 			<tr>
 				<td><%= other_user.email %></td>
 				<td>
-						<%= link_to "Add", user_tenant_project_path(id: @project.id,
-																tenant_id: @project.tenant_id,
-																user_id: other_user.id),
-																:method => :put,
-																:class => 'btn btn-xs btn-success' %>
-					<% end %>
+					<%= link_to "Add", user_tenant_project_path(id: @project.id,
+															tenant_id: @project.tenant_id,
+															user_id: other_user.id),
+															:method => :put,
+															:class => 'btn btn-xs btn-success' %>
 				</td>
 			</tr>
 		<% end %>
 	</tbody>
 </table>
 
-<%= link_to 'Back', tenant_project_path(id: @project.id, tenant_id: @project.tenant_id),
-										:class => 'btn btn-primary' %>
+<%= link_to 'Back', tenant_project_path(id: @project.id,
+																				tenant_id: @project.tenant_id),
+																				:class => 'btn btn-primary' %>
